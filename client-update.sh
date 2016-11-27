@@ -1,9 +1,14 @@
-SOURCE_ROOT=../
-TARGET_LOCATION=/usr/surveillance
+REPO_FOLDER=mqtt-raspicam
+TARGET_LOCATION=/usr/mqtt-raspicam
 CURRENT_DIR=$PWD
 
+#update repository
+cd $REPO_FOLDER
+git pull
+cd $CURRENT_DIR
+
 #update application
-cp -r $SOURCE_ROOT/app/camclient $SOURCE_ROOT/app/core $SOURCE_ROOT/app/maintenance $SOURCE_ROOT/package.json $TARGET_LOCATION
+cp -r $REPO_FOLDER/* $TARGET_LOCATION
 cd $TARGET_LOCATION
 npm install
 cd $CURRENT_DIR

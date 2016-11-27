@@ -1,4 +1,3 @@
-SOURCE_ROOT=../
 REPO_FOLDER=mqtt-raspicam
 TARGET_LOCATION=/usr/mqtt-raspicam
 TARGET_CFG_LOCATION=/etc/mqtt-raspicam
@@ -27,7 +26,12 @@ sudo mkdir $TARGET_LOCATION
 sudo chown -R pi:root $TARGET_LOCATION
 sudo chmod -R 775 $TARGET_LOCATION
 
-cp -r $REPO_FOLDER $TARGET_LOCATION
+#copy the application and load node_modules via npm
+cp -r $REPO_FOLDER/* $TARGET_LOCATION
 cd $TARGET_LOCATION
 npm install
 cd $CURRENT_DIR
+
+#open config files for editing
+nano $TARGET_CFG_LOCATION/config.json
+nano $TARGET_CFG_LOCATION/mqtt-config.json
