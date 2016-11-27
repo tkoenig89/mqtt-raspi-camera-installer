@@ -1,8 +1,10 @@
 REPO_FOLDER=mqtt-raspicam
+EXECUTABLE=/usr/local/bin/mqtt-raspicam
 TARGET_LOCATION=/usr/mqtt-raspicam
 TARGET_CFG_LOCATION=/etc/mqtt-raspicam
 IMAGE_BASEFOLDER=/mnt/usb/images
 CURRENT_DIR=$PWD
+NODE_PATH=$(which node)
 
 #install node and imagemagic
 ./client-prerequisits.sh
@@ -35,3 +37,8 @@ cd $CURRENT_DIR
 #open config files for editing
 nano $TARGET_CFG_LOCATION/config.json
 nano $TARGET_CFG_LOCATION/mqtt-config.json
+
+#create a shortcut executable
+echo "$NODE_PATH $TARGET_LOCATION $TARGET_CFG_LOCATION/config.json $TARGET_CFG_LOCATION/mqtt-config.json" > tempexecutable
+chmod +x tempexecutable
+sudo cp tempexecutable $EXECUTABLE
