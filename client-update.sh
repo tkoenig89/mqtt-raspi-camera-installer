@@ -2,6 +2,9 @@ REPO_FOLDER=mqtt-raspicam
 TARGET_LOCATION=/usr/mqtt-raspicam
 CURRENT_DIR=$PWD
 
+#update itself
+git pull
+
 #update repository
 cd $REPO_FOLDER
 git pull
