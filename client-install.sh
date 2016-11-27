@@ -29,16 +29,20 @@ sudo chown -R pi:root $TARGET_LOCATION
 sudo chmod -R 775 $TARGET_LOCATION
 
 #copy the application and load node_modules via npm
-cp -r $REPO_FOLDER/* $TARGET_LOCATION
+cp -r $REPO_FOLDER/modules $REPO_FOLDER/package.json $REPO_FOLDER/index.js $REPO_FOLDER/scripts $TARGET_LOCATION
 cd $TARGET_LOCATION
 npm install
 cd $CURRENT_DIR
-
-#open config files for editing
-nano $TARGET_CFG_LOCATION/config.json
-nano $TARGET_CFG_LOCATION/mqtt-config.json
 
 #create a shortcut executable
 echo "$NODE_PATH $TARGET_LOCATION $TARGET_CFG_LOCATION/config.json $TARGET_CFG_LOCATION/mqtt-config.json" > tempexecutable
 chmod +x tempexecutable
 sudo cp tempexecutable $EXECUTABLE
+rm tempexecutable
+
+#add cron.d file
+sudo cp assets/mqttcam_cron /etc/cron.d
+
+#open config files for editing
+nano $TARGET_CFG_LOCATION/config.json
+nano $TARGET_CFG_LOCATION/mqtt-config.json
