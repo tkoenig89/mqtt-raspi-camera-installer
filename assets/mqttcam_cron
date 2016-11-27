@@ -5,4 +5,4 @@ SHELL=/bin/sh
 @reboot pi mqtt-raspicam
 
 #cleanup images older than 3 days each hour
-"1 1 * * * pi /usr/mqtt-raspicam/scripts/removeOldImages.sh /mnt/usb/images/history 4000
+1 1 * * * pi /usr/mqtt-raspicam/scripts/removeOldImages.sh /mnt/usb/images/history 4000
