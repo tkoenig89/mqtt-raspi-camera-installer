@@ -2,7 +2,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 SHELL=/bin/sh
 
 #start the camera at boot (wait 30 sec so dns is available), use ' >> /mnt/usb/mqtt-raspicam.log 2>&1' for logging
-@reboot sleep 30; mqtt-raspicam
+@reboot pi sleep 30; mqtt-raspicam
 
 #cleanup images older than 3 days each hour
 1 1 * * * pi /usr/mqtt-raspicam/scripts/removeOldImages.sh /mnt/usb/images/history 4000
