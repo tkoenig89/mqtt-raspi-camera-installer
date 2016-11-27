@@ -8,7 +8,7 @@ git pull
 cd $CURRENT_DIR
 
 #update application
-cp -r $REPO_FOLDER/* $TARGET_LOCATION
+cp -r $REPO_FOLDER/modules $REPO_FOLDER/package.json $REPO_FOLDER/index.js $REPO_FOLDER/scripts $TARGET_LOCATION
 cd $TARGET_LOCATION
 npm install
 cd $CURRENT_DIR
