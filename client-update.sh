@@ -5,6 +5,9 @@ CURRENT_DIR=$PWD
 #update itself
 git pull
 
+#update cron.d file
+sudo cp assets/mqttcam_cron /etc/cron.d
+
 #update repository
 cd $REPO_FOLDER
 git pull
