@@ -7,7 +7,7 @@ CURRENT_DIR=$PWD
 NODE_PATH=$(which node)
 
 #install node and imagemagic
-./client-prerequisits.sh
+./prerequisits.sh
 
 #checkout mqtt-raspi-camera repo
 git clone https://github.com/tkoenig89/mqtt-raspi-camera.git $REPO_FOLDER
