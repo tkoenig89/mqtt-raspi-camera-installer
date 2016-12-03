@@ -3,6 +3,7 @@ TARGET_LOCATION=/usr/mqtt-raspicam
 CURRENT_DIR=$PWD
 
 #update itself
+echo "updating itself:"
 git pull
 
 #update cron.d file
@@ -10,6 +11,7 @@ sudo cp assets/mqttcam_cron /etc/cron.d
 
 #update repository
 cd $REPO_FOLDER
+echo "updating camera:"
 git pull
 cd $CURRENT_DIR
 
