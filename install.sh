@@ -4,7 +4,6 @@ TARGET_LOCATION=/usr/mqtt-raspicam
 TARGET_CFG_LOCATION=/etc/mqtt-raspicam
 IMAGE_BASEFOLDER=/mnt/usb/images
 CURRENT_DIR=$PWD
-NODE_PATH=$(which node)
 
 #install node and imagemagic
 ./prerequisits.sh
@@ -33,6 +32,8 @@ cp -r $REPO_FOLDER/modules $REPO_FOLDER/package.json $REPO_FOLDER/index.js $REPO
 cd $TARGET_LOCATION
 npm install
 cd $CURRENT_DIR
+
+NODE_PATH=$(which node)
 
 #create a shortcut executable
 echo "$NODE_PATH $TARGET_LOCATION $TARGET_CFG_LOCATION/config.json $TARGET_CFG_LOCATION/mqtt-config.json" > tempexecutable
